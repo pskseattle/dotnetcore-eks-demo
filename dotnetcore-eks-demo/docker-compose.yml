@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  dotnetcore-eks-demo:
+    image: ${DOCKER_REGISTRY-}dotnetcoreeksdemo
+    build:
+      context: .
+      dockerfile: ./Dockerfile
