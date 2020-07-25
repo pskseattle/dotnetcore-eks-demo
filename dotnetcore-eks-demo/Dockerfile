@@ -7,14 +7,14 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY dotnetcore-eks-demo/dotnetcore-eks-demo.csproj ./
-RUN dotnet restore "./dotnetcore-eks-demo.csproj"
+COPY dotnetcore-eks-demo/dotnetcore-eks-demo.csproj ./dotnetcore-eks-demo_build/
+RUN dotnet restore "./dotnetcore-eks-demo_build/dotnetcore-eks-demo.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "dotnetcore-eks-demo.csproj" -c Release -o /app/build
+RUN dotnet build "./dotnetcore-eks-demo_build/dotnetcore-eks-demo.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "dotnetcore-eks-demo.csproj" -c Release -o /app/publish
+RUN dotnet publish "./dotnetcore-eks-demo_build/dotnetcore-eks-demo.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
