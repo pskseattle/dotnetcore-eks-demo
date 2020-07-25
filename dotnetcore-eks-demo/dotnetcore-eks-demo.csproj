@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>dotnetcore_eks_demo</RootNamespace>
     <DockerComposeProjectPath>docker-compose.dcproj</DockerComposeProjectPath>
