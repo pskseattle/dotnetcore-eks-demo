@@ -11,10 +11,10 @@ COPY dotnetcore-eks-demo/dotnetcore-eks-demo.csproj ./dotnetcore-eks-demo_build/
 RUN dotnet restore "./dotnetcore-eks-demo_build/dotnetcore-eks-demo.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "./dotnetcore-eks-demo_build/dotnetcore-eks-demo.csproj" -c Release -o /app/build
+RUN dotnet build "./dotnetcore-eks-demo.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "./dotnetcore-eks-demo_build/dotnetcore-eks-demo.csproj" -c Release -o /app/publish
+RUN dotnet publish "./dotnetcore-eks-demo.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
