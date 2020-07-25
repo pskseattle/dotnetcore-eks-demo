@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>dotnetcore_eks_demo</RootNamespace>
+    <DockerComposeProjectPath>docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>ba249e40-9154-4b58-ba9b-4ac297c1c738</UserSecretsId>
   </PropertyGroup>
 
 </Project>
